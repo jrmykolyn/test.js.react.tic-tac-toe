@@ -55,5 +55,33 @@ describe('Game', () => {
         expect(game._state[row2][column2]).to.eq(1);
       });
     });
+
+    describe('checkWin()', () => {
+      it('should return `false` if the game has not been won', () => {
+        expect(game.checkWin()).to.be.false;
+      });
+
+      it('should check for a "row"-type win', () => {
+        game._state = [[0, 0, 0], [], []];
+
+        expect(game.checkWin()).to.be.true;
+      });
+
+      it('should check for a "column"-type win', () => {
+        game._state = [[0], [0], [0]];
+
+        expect(game.checkWin()).to.be.true;
+      });
+
+      it('should check for a "diagonal"-type win', () => {
+        game._state = [
+          [0],
+          [1, 0],
+          [1, 1, 0],
+        ];
+
+        expect(game.checkWin()).to.be.true;
+      });
+    });
   });
 });
