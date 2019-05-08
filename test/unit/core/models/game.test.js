@@ -11,4 +11,10 @@ describe('Game', () => {
       expect(new Game()).to.be.an.instanceof(Game);
     });
   });
+
+  describe('Constructor', () => {
+    it('should set up the initial state', () => {
+      expect(new Game()._state).to.eql([[], [], []]);
+    });
+  });
 });
