@@ -125,5 +125,35 @@ describe('Game', () => {
         expect(game.checkWin()).to.be.true;
       });
     });
+
+    describe('reset()', () => {
+      it('should reset the game state', () => {
+        game._state = 'Foo';
+
+        game.reset();
+
+        expect(game._state).to.eql([
+          [null, null, null],
+          [null, null, null],
+          [null, null, null],
+        ]);
+      });
+
+      it('should reset the current player', () => {
+        game._currentPlayer = 'Foo';
+
+        game.reset();
+
+        expect(game._currentPlayer).to.eq(0);
+      });
+
+      it('should set the `isComplete` property to `false`', () => {
+        game._isComplete = true;
+
+        game.reset();
+
+        expect(game._isComplete).to.be.false;
+      });
+    });
   });
 });

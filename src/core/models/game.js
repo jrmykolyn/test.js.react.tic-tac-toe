@@ -63,4 +63,14 @@ export default class Game {
       return val || WINS.includes(diag.join(JOIN_CHAR))
     }, false);
   }
+
+  reset() {
+    this._state = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ];
+    this._currentPlayer = 0;
+    this._isComplete = false;
+  }
 }
