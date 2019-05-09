@@ -1,6 +1,6 @@
 import React from 'react';
+import Board from './Board';
 import Modal from './Modal';
-import Row from './Row';
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -28,19 +28,13 @@ export default class Game extends React.Component {
   }
 
   render() {
-    const rows = this.state.game.getRows().map((row, i) => <Row key={ i } row={ row } onClick={ (j) => {
-      this.handleClick(i, j);
-    } } />);
-
     const modal = this.state.game._isComplete
       ? <Modal winner={ this.state.game._currentPlayer } onClick={ this.reset } />
       : '';
 
     return (
       <section className="game">
-        <div className="game__board">
-          { rows }
-        </div>
+        <Board rows={ this.state.game.getRows() } onClick={ this.handleClick } />
         { modal }
       </section>
     );
