@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from './Modal';
 import Row from './Row';
 
 export default class Game extends React.Component {
@@ -31,10 +32,17 @@ export default class Game extends React.Component {
       this.handleClick(i, j);
     } } />);
 
+    const modal = this.state.game._isComplete
+      ? <Modal winner={ this.state.game._currentPlayer } onClick={ this.reset } />
+      : '';
+
     return (
-      <div className="game">
-        { rows }
-      </div>
+      <section className="game">
+        <div className="game__board">
+          { rows }
+        </div>
+        { modal }
+      </section>
     );
   }
 }
