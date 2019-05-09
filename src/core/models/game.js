@@ -13,6 +13,7 @@ export default class Game {
       [null, null, null],
     ];
     this._currentPlayer = 0;
+    this._isComplete = false;
   }
 
   play(row, column) {

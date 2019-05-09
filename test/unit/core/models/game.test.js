@@ -24,6 +24,10 @@ describe('Game', () => {
     it('should set up the current player', () => {
       expect(new Game()._currentPlayer).to.eq(0);
     });
+
+    it('should set the `isComplete` property to `false`', () => {
+      expect(new Game()._isComplete).to.be.false;
+    });
   });
 
   describe('Instance methods', () => {
