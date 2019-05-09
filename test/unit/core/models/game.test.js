@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import * as sinon from 'sinon';
 import { Game } from '../../../../src/core';
 
 describe('Game', () => {
@@ -48,6 +49,19 @@ describe('Game', () => {
         expect(game._state[row][column]).to.eq(0);
       });
 
+      it('should not apply the current player\'s identifier if the game is complete', () => {
+        const row = 0;
+        const column = 0;
+        const coords = [row, column];
+        game._state = [[0]];
+        game._currentPlayer = 'Foo';
+        game._isComplete = true;
+
+        game.play(...coords);
+
+        expect(game._state[row][column]).to.eq(0);
+      });
+
       it('should alternate between players', () => {
         const row1 = 0;
         const column1 = 0;
@@ -61,6 +75,26 @@ describe('Game', () => {
 
         expect(game._state[row1][column1]).to.eq(0);
         expect(game._state[row2][column2]).to.eq(1);
+      });
+
+      it('should not alternate between players if the game is complete', () => {
+        const checkWin = game.checkWin = sinon.spy(() => true);
+        game._currentPlayer = 'Foo';
+
+        game.play(0, 0);
+
+        expect(checkWin.called).to.be.true;
+        expect(game._currentPlayer).to.eq('Foo');
+      });
+
+      it('should update the `isComplete` property using `checkWin`', () => {
+        const checkWin = game.checkWin = sinon.spy(() => true);
+        game._isComplete = false;
+
+        game.play(0, 0);
+
+        expect(checkWin.called).to.be.true;
+        expect(game._isComplete).to.be.true;
       });
     });
 

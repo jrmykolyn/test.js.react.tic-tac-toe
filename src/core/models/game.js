@@ -17,8 +17,9 @@ export default class Game {
   }
 
   play(row, column) {
-    this._state[row][column] = this._currentPlayer;
-    this._currentPlayer = this._currentPlayer % MAX_PLAYERS === 0 ? 1 : 0;
+    if (!this._isComplete) this._state[row][column] = this._currentPlayer;
+    this._isComplete = this.checkWin();
+    if (!this._isComplete) this._currentPlayer = this._currentPlayer % MAX_PLAYERS === 0 ? 1 : 0;
   }
 
   getRows() {
