@@ -4,7 +4,14 @@ export const WINS = ['000', '111'];
 
 export default class Game {
   constructor() {
-    this._state = [[], [], []];
+    // Prefer manual initialization over `Array#fill()` to prevent
+    // a case where the outer array is filled with references to
+    // the same memory location.
+    this._state = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ];
     this._currentPlayer = 0;
   }
 

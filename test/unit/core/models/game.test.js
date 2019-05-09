@@ -14,7 +14,11 @@ describe('Game', () => {
 
   describe('Constructor', () => {
     it('should set up the initial state', () => {
-      expect(new Game()._state).to.eql([[], [], []]);
+      expect(new Game()._state).to.eql([
+        [null, null, null],
+        [null, null, null],
+        [null, null, null],
+      ]);
     });
 
     it('should set up the current player', () => {
