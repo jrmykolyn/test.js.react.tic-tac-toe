@@ -42,6 +42,10 @@ export default class Game {
     return [d1, d2];
   }
 
+  isTaken(row, column) {
+    return this._state[row][column] !== null;
+  }
+
   checkWin() {
     return this.checkRowWin() || this.checkColumnWin() || this.checkDiagonalWin();
   }

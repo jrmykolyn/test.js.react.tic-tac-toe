@@ -126,6 +126,18 @@ describe('Game', () => {
       });
     });
 
+    describe('isTaken()', () => {
+      it('should return `true` if the target cell is occupied', () => {
+        game._state = [[0]];
+
+        expect(game.isTaken(0, 0,)).to.be.true;
+      });
+
+      it('should return `false` if the target cell contains a `null` value', () => {
+        expect(game.isTaken(0, 0)).to.be.false;
+      });
+    });
+
     describe('reset()', () => {
       it('should reset the game state', () => {
         game._state = 'Foo';
