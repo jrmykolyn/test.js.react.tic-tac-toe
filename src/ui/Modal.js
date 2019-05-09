@@ -8,7 +8,7 @@ export default class Modal extends React.Component {
           <article className="modal">
             <div className="modal__inner">
               <header>
-                <p>Game Over!</p>
+                <h1>Game Over!</h1>
               </header>
               <div>
                 <p>The winner is Player { this.props.winner + 1 }!</p>
