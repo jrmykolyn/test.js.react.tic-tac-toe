@@ -1,6 +1,14 @@
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   padding: 0;
+  background: #30336b;
+  background: #38ada9;
+  margin: 0;
+  padding: 3rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -8,33 +16,113 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.game {
+  width: 60rem;
+  height: 60rem;
+  flex-direction: column;
+  display: block;
+  margin: 0 auto;
+}
+
+.board {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .row {
+  flex: 1 1 auto;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  position: relative;
+}
+
+.row:not(:first-child)::before {
+  content: '';
+  display: block;
+  background: #079992;
+  width: 100%;
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0, -50%);
 }
 
 .cell {
-  width: 100px;
-  height: 100px;
+  width: 33.333%;
+  height: 100%;
   display: block;
-  background: rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-.row:nth-child(2n - 1) .cell:nth-child(2n - 1),
-.row:nth-child(2n) .cell:nth-child(2n) {
-  background: rgba(0, 0, 0, 0.3);
+.cell:not(:first-child)::before {
+  content: '';
+  display: block;
+  background: #079992;
+  width: 2rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, 0);
 }
 
-.cell.player-0 {
-  background: red !important;
+.cell.player-0 > span {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid #fff 2rem;
+  border-radius: 50%;
+  box-shadow: 0 0.3rem 1rem -0.3rem rgba(0, 0, 0, 0.3);
 }
 
-.cell.player-1 {
-  background: blue !important;
+.cell.player-1 > span::before,
+.cell.player-1 > span::after {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 2rem;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 0.3rem 1rem -0.3rem rgba(0, 0, 0, 0.3);
+}
+
+.cell.player-1 > span::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.cell.player-1 > span::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-wrapper__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 90%;
+  max-width: 60rem;
+  padding: 3rem;
+  background: #fff;
 }
