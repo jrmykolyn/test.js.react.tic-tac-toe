@@ -4,7 +4,10 @@ import Row from './Row';
 export default class Game extends React.Component {
   constructor(props) {
     super(props);
+
     this.handleClick = this.handleClick.bind(this);
+    this.reset = this.reset.bind(this);
+
     this.state = {
       game: this.props.game,
     };
@@ -16,6 +19,11 @@ export default class Game extends React.Component {
     this.setState({
       updatedAt: new Date().getTime(),
     });
+  }
+
+  reset() {
+    this.state.game.reset();
+    this.setState({ updatedAt: new Date().getTime() });
   }
 
   render() {
