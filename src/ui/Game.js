@@ -3,6 +3,12 @@ import Board from './Board';
 import Modal from './Modal';
 
 export default class Game extends React.Component {
+  static get MODES() {
+    return {
+      SINGLE: 'single',
+    };
+  }
+
   constructor(props) {
     super(props);
 
@@ -10,12 +16,19 @@ export default class Game extends React.Component {
     this.reset = this.reset.bind(this);
 
     this.state = {
-      game: this.props.game,
+      ...this.props,
     };
   }
 
   handleClick(row, column) {
-    this.state.game.play(row, column);
+    if (
+      this.state.game.play(row, column)
+      && !this.state.game._isComplete
+      && this.state.mode === Game.MODES.SINGLE
+    ) {
+      const coords = this.state.game.getRandomAvailableCoords();
+      if (coords) this.state.game.play(...coords);
+    }
 
     this.setState({
       updatedAt: new Date().getTime(),
