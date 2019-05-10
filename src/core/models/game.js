@@ -34,6 +34,15 @@ export default class Game {
       .filter((v) => !!v);
   }
 
+  getRandomAvailableCoords() {
+    const coords = this.getAllAvailableCoords();
+    const length = coords.length;
+
+    return length <= 1
+      ? coords[0]
+      : coords[Math.floor(Math.random() * length)];
+  }
+
   getRows() {
     return this._state;
   }

@@ -205,5 +205,36 @@ describe('Game', () => {
         expect(coords[0]).to.eql([0, 1]);
       });
     });
+
+    describe('getRandomAvailableCoords()', () => {
+      it('should return a random pair of available coordinates', () => {
+        const vals = [0, 1, 2];
+        const getAllAvailableCoords = game.getAllAvailableCoords = sinon.spy(() => vals);
+
+        const coords = game.getRandomAvailableCoords();
+
+        expect(getAllAvailableCoords.called).to.be.true;
+        expect(vals.includes(coords)).to.be.true;
+      });
+
+      it('should return the only pair of available coordinates', () => {
+        const vals = [0];
+        const getAllAvailableCoords = game.getAllAvailableCoords = sinon.spy(() => vals);
+
+        const coords = game.getRandomAvailableCoords();
+
+        expect(getAllAvailableCoords.called).to.be.true;
+        expect(vals[0]).to.eq(coords);
+      });
+
+      it('should return `undefined` if there are no available coordinates', () => {
+        const getAllAvailableCoords = game.getAllAvailableCoords = sinon.spy(() => []);
+
+        const coords = game.getRandomAvailableCoords();
+
+        expect(getAllAvailableCoords.called).to.be.true;
+        expect(coords).to.be.undefined;
+      });
+    });
   });
 });
