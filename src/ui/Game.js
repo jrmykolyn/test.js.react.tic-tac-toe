@@ -28,8 +28,8 @@ export default class Game extends React.Component {
   }
 
   render() {
-    const modal = this.state.game._isComplete
-      ? <Modal winner={ this.state.game._currentPlayer } onClick={ this.reset } />
+    const modal = this.state.game._isComplete || !this.state.game.getRandomAvailableCoords()
+      ? <Modal winner={ this.state.game._wonBy } onClick={ this.reset } />
       : '';
 
     return (
