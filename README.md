@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tic-Tac-Toe
 
-## Available Scripts
+## Table of Contents
+- [About](#about)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Documentation](#documentation)
+- [Attribution](#attribution)
 
-In the project directory, you can run:
+## About
+This repository features a tic-tac-toe-style game, implemented in React. This game is browser-based, and can be played by one or two human players.
 
-### `npm start`
+## Prerequisites
+In order to run this project, please ensure that both Node and npm are installed on your system.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
+To install the dependencies for this project, complete the following steps:
+  - Download or clone the repository to your local file system.
+  - Using the command line, navigate to the root of the repository.
+  - Run `npm install`.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Usage
+To being a new game, run the following command: `npm run start`. This command will create a new local game server, which will listen for requests at `http://localhost:3000/`. If the `start` command does not automatically open the default browser, do so and navigate to the correct URL.
 
-### `npm test`
+By default, the game runs in 'two player' mode. In this mode, two human players take turns placing donut ('O') and celery ('X') tokens on the board.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To enable 'single player' mode, navigate to the following url: `http://localhost:3000/mode=single`. In this mode, a single human player places the donut tokens, and the celery tokens are placed by the game itself.
 
-### `npm run build`
+In the case of a win or draw, play is stopped, the appropriate message is displayed, and the player is prompted to restart.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Documentation
+Currently, this project does not include any external documentation.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+For an overview of the project's evolution, please consult the CHANGELOG.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Attribution
+- `donut.svg` and `celery.svg` assets provided by KitchenMate.
