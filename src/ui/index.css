@@ -5,7 +5,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: #30336b;
   background: #38ada9;
   margin: 0;
   padding: 3rem;
@@ -96,39 +95,26 @@ button:focus {
   transform: translate(-50%, 0);
 }
 
-.cell.player-0 > span {
+.cell.player-0 > span,
+.cell.player-1 > span {
   content: '';
   display: block;
-  width: 50%;
-  height: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: solid #fff 1.4rem;
-  border-radius: 50%;
-  box-shadow: 0 0.3rem 1rem -0.3rem rgba(0, 0, 0, 0.3);
 }
 
-.cell.player-1 > span::before,
-.cell.player-1 > span::after {
-  content: '';
-  display: block;
-  width: 80%;
-  height: 1.4rem;
-  background: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  box-shadow: 0 0.3rem 1rem -0.3rem rgba(0, 0, 0, 0.3);
+.cell.player-0 > span {
+  width: 70%;
+  height: 70%;
+  background: url('/assets/icons/donut.svg');
 }
 
-.cell.player-1 > span::before {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.cell.player-1 > span::after {
-  transform: translate(-50%, -50%) rotate(45deg);
+.cell.player-1 > span {
+  width: 90%;
+  height: 90%;
+  background: url('/assets/icons/celery.svg');
 }
 
 .modal-wrapper {
@@ -163,14 +149,5 @@ button:focus {
 
   .cell:not(:first-child)::before {
     width: 2rem;
-  }
-
-  .cell.player-0 > span {
-    border: solid #fff 2rem;
-  }
-
-  .cell.player-1 > span::before,
-  .cell.player-1 > span::after {
-    height: 2rem;
   }
 }
