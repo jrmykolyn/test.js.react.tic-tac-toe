@@ -120,6 +120,32 @@ describe('Game', () => {
         expect(checkWin.called).to.be.true;
         expect(game._isComplete).to.be.true;
       });
+
+      it('should set the `wonBy` property to the current player when the game is complete', () => {
+        const currentPlayer = 'Foo';
+        game._currentPlayer = currentPlayer;
+        game.checkWin = () => true;
+
+        game.play(0, 0);
+
+        expect(game._wonBy).to.eq(currentPlayer);
+      });
+
+      it('should return `true` when the play is successful', () => {
+        expect(game.play(0, 0)).to.be.true;
+      });
+
+      it('should return `false` if the game is complete', () => {
+        game._isComplete = true;
+
+        expect(game.play(0, 0)).to.be.false;
+      });
+
+      it('should return `false` if the target cell is occupied', () => {
+        game._state = [[0]];
+
+        expect(game.play(0, 0)).to.be.false;
+      });
     });
 
     describe('checkWin()', () => {

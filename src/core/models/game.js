@@ -18,11 +18,16 @@ export default class Game {
   }
 
   play(row, column) {
-    if (!this._isComplete && !this.isTaken(row, column)) {
-      this._state[row][column] = this._currentPlayer;
-      this._currentPlayer = this._currentPlayer % MAX_PLAYERS === 0 ? 1 : 0;
-      this._isComplete = this.checkWin();
-    }
+    if (this._isComplete || this.isTaken(row, column)) return false;
+
+    this._state[row][column] = this._currentPlayer;
+    this._isComplete = this.checkWin();
+    this._wonBy = this._isComplete ? this._currentPlayer : null;
+    this._currentPlayer = this.isComplete
+      ? this._currentPlayer
+      : this._currentPlayer % MAX_PLAYERS === 0 ? 1 : 0;
+
+    return true;
   }
 
   getAllAvailableCoords() {
