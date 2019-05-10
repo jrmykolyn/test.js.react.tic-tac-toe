@@ -24,6 +24,16 @@ export default class Game {
     }
   }
 
+  getAllAvailableCoords() {
+    return this._state.map((row, i) => {
+      return row.map((col, j) => {
+        return col === null ? [i, j] : undefined;
+      })
+    })
+      .reduce((acc, arr) => [...acc, ...(arr || [])], [])
+      .filter((v) => !!v);
+  }
+
   getRows() {
     return this._state;
   }

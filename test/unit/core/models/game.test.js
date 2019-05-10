@@ -187,5 +187,23 @@ describe('Game', () => {
         expect(game._isComplete).to.be.false;
       });
     });
+
+    describe('getAllAvailableCoords()', () => {
+      it('should return the coordinates of each unoccupied cell', () => {
+        const coords = game.getAllAvailableCoords();
+
+        expect(coords.length).to.eq(9);
+        expect(coords.every(([row, col]) => typeof row === 'number' && typeof col === 'number')).to.be.true;
+      });
+
+      it('should exclude cells that are occupied', () => {
+        game._state[0][0] = 0;
+
+        const coords = game.getAllAvailableCoords();
+
+        expect(coords.length).to.eq(8);
+        expect(coords[0]).to.eql([0, 1]);
+      });
+    });
   });
 });
