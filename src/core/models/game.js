@@ -63,9 +63,9 @@ export default class Game {
 
   getDiagonals() {
     const rows = this.getRows();
-    const l = rows.length;
+    const max = rows.length - 1;
     const d1 = rows.map((row, i) => row[i]);
-    const d2 = rows.map((row, i) => row[l - i]);
+    const d2 = rows.map((row, i) => row[max - i]);
     return [d1, d2];
   }
 
