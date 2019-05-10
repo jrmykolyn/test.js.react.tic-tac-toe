@@ -14,6 +14,7 @@ export default class Game {
     ];
     this._currentPlayer = 0;
     this._isComplete = false;
+    this._wonBy = null;
   }
 
   play(row, column) {

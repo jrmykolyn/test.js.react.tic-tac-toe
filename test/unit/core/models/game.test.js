@@ -29,6 +29,10 @@ describe('Game', () => {
     it('should set the `isComplete` property to `false`', () => {
       expect(new Game()._isComplete).to.be.false;
     });
+
+    it('should set the `wonBy` property to `false`', () => {
+      expect(new Game()._wonBy).to.be.null;
+    });
   });
 
   describe('Instance methods', () => {
