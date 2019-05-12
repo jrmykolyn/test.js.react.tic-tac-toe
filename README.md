@@ -21,7 +21,7 @@ To install the dependencies for this project, complete the following steps:
   - Run `npm install`.
 
 ## Usage
-To being a new game, run the following command: `npm run start`. This command will create a new local game server, which will listen for requests at `http://localhost:3000/`. If the `start` command does not automatically open the default browser, do so and navigate to the correct URL.
+To begin a new game, run the following command: `npm run start`. This command will create a new local game server, which will listen for requests at `http://localhost:3000/`. If the `start` command does not automatically open the default browser, do so and navigate to the correct URL.
 
 By default, the game runs in 'two player' mode. In this mode, two human players take turns placing donut ('O') and celery ('X') tokens on the board.
 
