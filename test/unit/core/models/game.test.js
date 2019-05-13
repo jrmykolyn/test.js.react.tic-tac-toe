@@ -296,5 +296,25 @@ describe('Game', () => {
         expect(c).to.eql(col3);
       });
     });
+
+    describe('getDiagonals()', () => {
+      it('should return a two-dimensional arrow of diagonal data', () => {
+        const diag1 = [0, 1, 2];
+        const diag2 = [2, 1, 0];
+        game._state = [
+          [0, 1, 2],
+          [0, 1, 2],
+          [0, 1, 2],
+        ];
+
+        const result = game.getDiagonals();
+        const [a, b] = result;
+
+        expect(result.length).to.eq(2);
+        expect(a).to.eql(diag1);
+        expect(b).to.eql(diag2);
+      });
+
+    });
   });
 });
