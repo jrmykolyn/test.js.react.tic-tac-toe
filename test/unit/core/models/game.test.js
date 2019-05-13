@@ -266,5 +266,14 @@ describe('Game', () => {
         expect(coords).to.be.undefined;
       });
     });
+
+    describe('getRows()', () => {
+      it('should return a two-dimensional array of row data', () => {
+        const rows = [];
+        game._state = rows;
+
+        expect(game.getRows()).to.eq(rows);
+      });
+    });
   });
 });
