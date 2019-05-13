@@ -275,5 +275,26 @@ describe('Game', () => {
         expect(game.getRows()).to.eq(rows);
       });
     });
+
+    describe('getColumns()', () => {
+      it('should return a two-dimensional array of column data', () => {
+        const col1 = new Array(3).fill(0);
+        const col2 = new Array(3).fill(1);
+        const col3 = new Array(3).fill(2);
+        game._state = [
+          [0, 1, 2],
+          [0, 1, 2],
+          [0, 1, 2],
+        ];
+
+        const result = game.getColumns();
+        const [a, b, c] = result
+
+        expect(result.length).to.eq(3);
+        expect(a).to.eql(col1);
+        expect(b).to.eql(col2);
+        expect(c).to.eql(col3);
+      });
+    });
   });
 });
