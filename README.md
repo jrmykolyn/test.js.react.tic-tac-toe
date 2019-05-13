@@ -25,7 +25,7 @@ To begin a new game, run the following command: `npm run start`. This command wi
 
 By default, the game runs in 'two player' mode. In this mode, two human players take turns placing donut ('O') and celery ('X') tokens on the board.
 
-To enable 'single player' mode, navigate to the following url: `http://localhost:3000/mode=single`. In this mode, a single human player places the donut tokens, and the celery tokens are placed by the game itself.
+To enable 'single player' mode, navigate to the following url: `http://localhost:3000?mode=single`. In this mode, a single human player places the donut tokens, and the celery tokens are placed by the game itself.
 
 In the case of a win or draw, play is stopped, the appropriate message is displayed, and the player is prompted to restart.
 

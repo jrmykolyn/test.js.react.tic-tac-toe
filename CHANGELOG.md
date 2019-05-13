@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [Unreleased]
 
 ### Fixed
+- Fixed incorrect 'single player' mode instructions in `README.md` document.
 - Fixed typo in 'Usage' section of `README.md` document.
 
 ## [1.0.0] - 2019-05-09
